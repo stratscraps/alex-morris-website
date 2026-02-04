@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Alex Morris" theme="split">
+  <div class="split-container">
+    <!-- Left Side - Public Works (Dark) -->
+    <a href="/public-works" class="split-side split-side--dark">
+      <div class="content-wrapper">
+        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
+          Resources &nbsp;&nbsp; Frameworks &nbsp;&nbsp; Writing
+        </p>
+        <h1 class="heading-primary">PUBLIC WORKS</h1>
+      </div>
+    </a>
+
+    <!-- Center Logo -->
+    <div class="logo-center">
+      <div class="logo-badge">
+        <img src="/logo-dark.svg" alt="Strat Scraps" />
+      </div>
+    </div>
+
+    <!-- Right Side - Private Works (Light) -->
+    <a href="/private-works" class="split-side split-side--light">
+      <div class="content-wrapper">
+        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
+          Freelance &nbsp;&nbsp; Process &nbsp;&nbsp; Examples
+        </p>
+        <h1 class="heading-primary">PRIVATE WORKS</h1>
+      </div>
+    </a>
+  </div>
+
+  <a href="mailto:alex@stratscraps.com" class="contact-link">Contact</a>
+</Layout>
+
+<style>
+  .logo-badge {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .logo-badge img {
+    width: 50px;
+    height: auto;
+  }
+</style>

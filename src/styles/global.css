@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --color-dark: #1a1a1a;
+  --color-light: #fafafa;
+  --color-accent: #4CAF7C;
+  --color-gray: #666;
+  --color-white: #ffffff;
+  --font-family: 'Inter', sans-serif;
+  --transition-duration: 500ms;
+  --transition-timing: ease-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Typography */
+.heading-primary {
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.nav-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Split screen */
+.split-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.split-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: width var(--transition-duration) var(--transition-timing),
+              opacity 300ms ease;
+  width: 50%;
+  position: relative;
+}
+
+.split-side--dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.split-side--light {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+/* Hover states */
+.split-container:hover .split-side--dark:hover {
+  width: 65%;
+}
+
+.split-container:hover .split-side--light:hover {
+  width: 65%;
+}
+
+.split-container:hover .split-side--dark:not(:hover) {
+  width: 35%;
+  opacity: 0.5;
+}
+
+.split-container:hover .split-side--light:not(:hover) {
+  width: 35%;
+  opacity: 0.5;
+}
+
+/* Logo center */
+.logo-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.logo-center img {
+  width: 60px;
+  height: auto;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Page layouts */
+.page-dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  min-height: 100vh;
+}
+
+.page-light {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  min-height: 100vh;
+}
+
+/* Accordion */
+.accordion-item {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.accordion-header {
+  padding: 1.5rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Navigation */
+.back-nav {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 200ms;
+}
+
+.back-nav:hover {
+  opacity: 1;
+}
+
+/* Contact link */
+.contact-link {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  transition: opacity 200ms;
+}
+
+.contact-link:hover {
+  opacity: 1;
+}
+
+/* Section styling */
+.section {
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+/* Links list */
+.links-list {
+  list-style: none;
+}
+
+.links-list li {
+  margin-bottom: 1rem;
+}
+
+.links-list a {
+  font-size: 18px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms;
+}
+
+.links-list a:hover {
+  border-color: currentColor;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .split-side {
+    width: 100% !important;
+    height: 50vh;
+  }
+
+  .split-container:hover .split-side {
+    opacity: 1 !important;
+  }
+
+  .logo-center {
+    top: 50%;
+  }
+}

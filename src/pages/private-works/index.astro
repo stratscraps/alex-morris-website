@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Content - edit this section to update accordion content
+const sections = [
+  {
+    id: 'clients',
+    title: 'Past Clients',
+    content: `
+      <p>Selected client work across strategy, branding, and creative direction:</p>
+      <p style="margin-top: 1rem; line-height: 1.8;">
+        Pacifico · L.L. Bean · VICE · eHarmony · Dos Equis · Smirnoff · Bushmills · Poppi · Indeed
+      </p>
+    `
+  },
+  {
+    id: 'offering',
+    title: 'Offering',
+    content: `
+      <p>I work with brands and agencies on:</p>
+      <ul style="margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Brand Strategy</li>
+        <li>Campaign Strategy</li>
+        <li>Research</li>
+        <li>Creative Development</li>
+        <li>Comms Planning</li>
+        <li>Consulting</li>
+        <li>Team Development</li>
+      </ul>
+    `
+  },
+  {
+    id: 'about',
+    title: 'About',
+    content: `
+      <p>Strategist and writer. I help brands find their voice and build meaningful connections with their audiences.</p>
+      <p style="margin-top: 1rem;">Currently taking on select freelance projects.</p>
+    `
+  }
+];
+---
+
+<Layout title="Private Works - Alex Morris" theme="light">
+  <a href="/" class="back-nav">← Home</a>
+
+  <div class="logo-header">
+    <a href="/"><img src="/logo-dark.svg" alt="Strat Scraps" /></a>
+  </div>
+
+  <main style="padding-top: 6rem;">
+    <header style="text-align: center; padding: 2rem;">
+      <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
+        Freelance &nbsp;&nbsp; Process &nbsp;&nbsp; Examples
+      </p>
+      <h1 class="heading-primary">PRIVATE WORKS</h1>
+      <p style="color: #666; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
+        Freelance strategy and creative direction for brands and agencies.
+      </p>
+    </header>
+
+    <div class="section" style="max-width: 600px;">
+      {sections.map((section) => (
+        <div class="accordion-item">
+          <button
+            class="accordion-header"
+            data-accordion={section.id}
+            aria-expanded="false"
+          >
+            <span>{section.title}</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content" id={section.id}>
+            <div style="padding-bottom: 1.5rem;" set:html={section.content} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <a href="mailto:alex@stratscraps.com" class="contact-link">Contact</a>
+</Layout>
+
+<script>
+  document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+      const accordionId = button.getAttribute('data-accordion');
+      const content = document.getElementById(accordionId);
+      const icon = button.querySelector('.accordion-icon');
+      const isOpen = content?.classList.contains('open');
+
+      // Close all accordions
+      document.querySelectorAll('.accordion-content').forEach(el => {
+        el.classList.remove('open');
+      });
+      document.querySelectorAll('.accordion-icon').forEach(el => {
+        el.textContent = '+';
+      });
+      document.querySelectorAll('.accordion-header').forEach(el => {
+        el.setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked one (if it wasn't already open)
+      if (!isOpen && content) {
+        content.classList.add('open');
+        if (icon) icon.textContent = '−';
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+  .logo-header {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .logo-header img {
+    width: 50px;
+    height: auto;
+  }
+
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .accordion-icon {
+    font-size: 24px;
+    font-weight: 300;
+  }
+</style>
