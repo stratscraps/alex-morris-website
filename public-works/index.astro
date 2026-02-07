@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import publicWorksData from '../../content/public-works.json';
+
+const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
+---
+
+<Layout title="Public Works - Alex Morris" theme="dark">
+  <a href="/" class="back-nav" style="color: #666;">← Home</a>
+
+  <div class="logo-header">
+    <a href="/"><img src="/logo-light.svg" alt="Strat Scraps" /></a>
+  </div>
+
+  <main style="padding-top: 6rem;">
+    <header style="text-align: center; padding: 2rem;">
+      <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
+        {pageSubtitle}
+      </p>
+      <h1 class="heading-primary">{pageTitle}</h1>
+      <p style="color: #888; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
+        {pageDescription}
+      </p>
+    </header>
+
+    {sections.map((section) => (
+      <section class="section">
+        <h2 class="section-title">{section.title}</h2>
+        <ul class="links-list">
+          {section.links.map((link) => (
+            <li>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+
+  <a href="mailto:alex@stratscraps.com" class="contact-link" style="color: #666;">Contact</a>
+</Layout>
+
+<style>
+  .logo-header {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .logo-header img {
+    width: 50px;
+    height: auto;
+  }
+</style>

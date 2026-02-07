@@ -1,0 +1,45 @@
+backend:
+  name: github
+  repo: stratscraps/alex-morris-website
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "public-works"
+        label: "Public Works Page"
+        file: "src/content/public-works.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Subtitle", name: "pageSubtitle", widget: "string" }
+          - { label: "Description", name: "pageDescription", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Link Text", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+
+      - name: "private-works"
+        label: "Private Works Page"
+        file: "src/content/private-works.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Subtitle", name: "pageSubtitle", widget: "string" }
+          - { label: "Description", name: "pageDescription", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section ID", name: "id", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Content", name: "content", widget: "text" }
