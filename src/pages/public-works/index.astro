@@ -1,29 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import publicWorksData from '../../content/public-works.json';
 
-// Content - edit this section to update your links
-const sections = [
-  {
-    title: 'Newsletter',
-    links: [
-      { label: 'Strat Scraps on Substack', url: 'https://stratscraps.substack.com/' }
-    ]
-  },
-  {
-    title: 'Book',
-    links: [
-      { label: 'Read Online', url: 'https://view.publitas.com/thechopshop/theory-of-strategy-and-planning/page/1' },
-      { label: 'Order Physical Copy', url: 'https://www.blurb.com/b/9009720-strategy-scrapbook' }
-    ]
-  },
-  {
-    title: 'Resources',
-    links: [
-      { label: 'Curated Links & References', url: 'https://docs.google.com/document/d/1zcBnj6X6oLBHPobTg88B9KASCVKV1Nwguwzfop-UQPo/edit?usp=sharing' },
-      { label: 'Original Works & Projects', url: 'https://docs.google.com/spreadsheets/d/1j3YWw1hat7ybolliCwo_GNOO3T0mN0DZ53Qqjt__5ac/edit?usp=sharing' }
-    ]
-  }
-];
+const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
 ---
 
 <Layout title="Public Works - Alex Morris" theme="dark">
@@ -36,11 +15,11 @@ const sections = [
   <main style="padding-top: 6rem;">
     <header style="text-align: center; padding: 2rem;">
       <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
-        Resources &nbsp;&nbsp; Frameworks &nbsp;&nbsp; Writing
+        {pageSubtitle}
       </p>
-      <h1 class="heading-primary">PUBLIC WORKS</h1>
+      <h1 class="heading-primary">{pageTitle}</h1>
       <p style="color: #888; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
-        Free resources, writing, and frameworks for strategists and creative thinkers.
+        {pageDescription}
       </p>
     </header>
 
