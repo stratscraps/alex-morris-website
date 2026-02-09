@@ -1,0 +1,16 @@
+{
+  "siteTitle": "Alex Morris",
+  "logoAlt": "Strat Scraps",
+  "publicWorks": {
+    "heading": "PUBLIC WORKS",
+    "subtitle": "Resources   Frameworks   Writing",
+    "link": "/public-works"
+  },
+  "privateWorks": {
+    "heading": "PRIVATE WORKS",
+    "subtitle": "Freelance   Process   Examples",
+    "link": "/private-works"
+  },
+  "contactEmail": "alex@stratscraps.com",
+  "contactLabel": "Contact"
+}

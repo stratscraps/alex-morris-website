@@ -1,38 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import homepageData from '../data/homepage.json';
+
+const { siteTitle, logoAlt, publicWorks, privateWorks, contactEmail, contactLabel } = homepageData;
 ---
 
-<Layout title="Alex Morris" theme="split">
+<Layout title={siteTitle} theme="split">
   <div class="split-container">
     <!-- Left Side - Public Works (Dark) -->
-    <a href="/public-works" class="split-side split-side--dark">
+    <a href={publicWorks.link} class="split-side split-side--dark">
       <div class="content-wrapper">
         <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
-          Resources &nbsp;&nbsp; Frameworks &nbsp;&nbsp; Writing
+          {publicWorks.subtitle}
         </p>
-        <h1 class="heading-primary">PUBLIC WORKS</h1>
+        <h1 class="heading-primary">{publicWorks.heading}</h1>
       </div>
     </a>
 
     <!-- Center Logo -->
     <div class="logo-center">
       <div class="logo-badge">
-        <img src="/logo-dark.svg" alt="Strat Scraps" />
+        <img src="/logo-dark.svg" alt={logoAlt} />
       </div>
     </div>
 
     <!-- Right Side - Private Works (Light) -->
-    <a href="/private-works" class="split-side split-side--light">
+    <a href={privateWorks.link} class="split-side split-side--light">
       <div class="content-wrapper">
         <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
-          Freelance &nbsp;&nbsp; Process &nbsp;&nbsp; Examples
+          {privateWorks.subtitle}
         </p>
-        <h1 class="heading-primary">PRIVATE WORKS</h1>
+        <h1 class="heading-primary">{privateWorks.heading}</h1>
       </div>
     </a>
   </div>
 
-  <a href="mailto:alex@stratscraps.com" class="contact-link">Contact</a>
+  <a href={`mailto:${contactEmail}`} class="contact-link">{contactLabel}</a>
 </Layout>
 
 <style>

@@ -1,0 +1,42 @@
+{
+  "pageTitle": "PUBLIC WORKS",
+  "pageSubtitle": "Resources · Frameworks · Writing",
+  "pageDescription": "Free resources, writing, and frameworks for strategists and creative thinkers.",
+  "sections": [
+    {
+      "title": "Newsletter",
+      "links": [
+        {
+          "label": "Strat Scraps on Substack",
+          "url": "https://stratscraps.substack.com/"
+        }
+      ]
+    },
+    {
+      "title": "Book",
+      "links": [
+        {
+          "label": "Read Online",
+          "url": "https://view.publitas.com/thechopshop/theory-of-strategy-and-planning/page/1"
+        },
+        {
+          "label": "Order Physical Copy",
+          "url": "https://www.blurb.com/b/9009720-strategy-scrapbook"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        {
+          "label": "Curated Links & References",
+          "url": "https://docs.google.com/document/d/1zcBnj6X6oLBHPobTg88B9KASCVKV1Nwguwzfop-UQPo/edit?usp=sharing"
+        },
+        {
+          "label": "Original Works & Projects",
+          "url": "https://docs.google.com/spreadsheets/d/1j3YWw1hat7ybolliCwo_GNOO3T0mN0DZ53Qqjt__5ac/edit?usp=sharing"
+        }
+      ]
+    }
+  ]
+}

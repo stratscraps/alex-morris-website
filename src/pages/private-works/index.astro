@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import privateWorksData from '../../content/private-works.json';
+import privateWorksData from '../../data/private-works.json';
 
 const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
 ---
@@ -79,3 +79,29 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
         button.setAttribute('aria-expanded', 'true');
       }
     });
+  });
+</script>
+
+<style>
+  .logo-header {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .logo-header img {
+    width: 50px;
+    height: auto;
+  }
+
+  .accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+</style>
