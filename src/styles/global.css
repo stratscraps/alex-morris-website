@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 
 :root {
   --color-dark: #1a1a1a;
@@ -6,7 +6,7 @@
   --color-accent: #4CAF7C;
   --color-gray: #666;
   --color-white: #ffffff;
-  --font-family: 'Inter', sans-serif;
+  --font-family: 'IBM Plex Mono', monospace;
   --transition-duration: 500ms;
   --transition-timing: ease-out;
 }
