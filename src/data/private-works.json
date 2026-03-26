@@ -6,7 +6,22 @@
     {
       "id": "clients",
       "title": "Past Clients",
-      "content": "Pacifico · L.L. Bean · VICE · eHarmony · Dos Equis · Smirnoff · Bushmills · Poppi · Indeed"
+      "clients": [
+        { "name": "Hinge", "description": "GTM Campaign Strategy, Brand Campaign Ideation" },
+        { "name": "Upwork", "description": "GTM Strategy" },
+        { "name": "Stink Studios", "description": "Pitch Support" },
+        { "name": "DEPT.", "description": "Pitch Support" },
+        { "name": "Motion Sickness", "description": "Ongoing Creative Strategy Partner" },
+        { "name": "Pacifico", "description": "Brand Strategy" },
+        { "name": "L.L. Bean", "description": "GTM Strategy" },
+        { "name": "VICE", "description": "Comms Strategy, Positioning" },
+        { "name": "eHarmony", "description": "Comms Strategy" },
+        { "name": "Dos Equis", "description": "Brand Strategy, Campaign Strategy" },
+        { "name": "Smirnoff", "description": "Global Digital Strategy" },
+        { "name": "Bushmills", "description": "GTM, Portfolio Strategy, Brand Strategy" },
+        { "name": "Poppi", "description": "Super Bowl Creative Briefing" },
+        { "name": "Indeed", "description": "Platform/Product Strategy" }
+      ]
     },
     {
       "id": "offering",

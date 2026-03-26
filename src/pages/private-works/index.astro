@@ -36,7 +36,19 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
           </button>
           <div class="accordion-content" id={section.id}>
             <div style="padding-bottom: 1.5rem; line-height: 1.8;">
-              {section.id === 'offering' ? (
+              {section.id === 'clients' && section.clients ? (
+                <ul class="client-list">
+                  {section.clients.map((client) => (
+                    <li class="client-item">
+                      <button class="client-toggle" aria-expanded="false">
+                        <span>{client.name}</span>
+                        <span class="client-icon">+</span>
+                      </button>
+                      <p class="client-description">{client.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              ) : section.id === 'offering' ? (
                 <ul style="padding-left: 1.5rem;">
                   {section.content.split(', ').map((item) => (
                     <li>{item}</li>
@@ -56,6 +68,22 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
 </Layout>
 
 <script>
+  document.querySelectorAll('.client-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const li = button.parentElement;
+      const isOpen = li?.classList.contains('open');
+      if (isOpen) {
+        li.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+        button.querySelector('.client-icon').textContent = '+';
+      } else {
+        li.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+        button.querySelector('.client-icon').textContent = '−';
+      }
+    });
+  });
+
   document.querySelectorAll('.accordion-header').forEach(button => {
     button.addEventListener('click', () => {
       const accordionId = button.getAttribute('data-accordion');
@@ -103,5 +131,48 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
     text-align: left;
     font-family: inherit;
     color: inherit;
+  }
+
+  .client-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .client-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .client-toggle {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: inherit;
+  }
+
+  .client-icon {
+    font-size: 1rem;
+    opacity: 0.5;
+  }
+
+  .client-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .client-item.open .client-description {
+    max-height: 100px;
+    padding-bottom: 0.75rem;
   }
 </style>
