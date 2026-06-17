@@ -13,6 +13,41 @@
       ]
     },
     {
+      "title": "Things I've Built",
+      "links": [
+        {
+          "label": "The Scrapbook",
+          "url": "https://scrapbook.stratscraps.com",
+          "description": "now a living website — something I'll keep iterating on. If it's ever down, I'm probably mid-update (or something broke)."
+        },
+        {
+          "label": "Ask the Archive",
+          "url": "https://research.stratscraps.com/",
+          "description": "200+ newsletter issues catalogued into a tool that gives you the archive's take on any topic. Paid subscribers — email me for the password."
+        },
+        {
+          "label": "scrap.cards",
+          "url": "https://scrap.cards",
+          "description": "One-line thoughts, tips, and ephemera, meant to be flipped through at random. A thinking habit of mine for years."
+        },
+        {
+          "label": "WRKFLW",
+          "url": "https://wrkflw-strategy.netlify.app/",
+          "description": "A deep prompt builder to run with the LLM of your choice."
+        },
+        {
+          "label": "Stratscraps.net",
+          "url": "https://www.stratscraps.net/",
+          "description": "Every original piece from the newsletter, organized by theme."
+        },
+        {
+          "label": "Creatives on Strategy",
+          "url": "https://creativeonstrategy.stratscraps.net/",
+          "description": "What working creatives really think about strategists — the data as a lightly interactive site."
+        }
+      ]
+    },
+    {
       "title": "Book",
       "links": [
         {
@@ -35,14 +70,6 @@
         {
           "label": "Original Works & Projects",
           "url": "https://docs.google.com/spreadsheets/d/1j3YWw1hat7ybolliCwo_GNOO3T0mN0DZ53Qqjt__5ac/edit?usp=sharing"
-        },
-        {
-          "label": "Creatives On Strategy",
-          "url": "https://creativeonstrategy.stratscraps.net/"
-        },
-        {
-          "label": "Collected Original Writing from the Newsletter",
-          "url": "https://www.stratscraps.net/"
         },
         {
           "label": "Scrap Card Shuffler",

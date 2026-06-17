@@ -32,6 +32,7 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
               <a href={link.url} target="_blank" rel="noopener noreferrer">
                 {link.label}
               </a>
+              {link.description && <p class="link-description">{link.description}</p>}
             </li>
           ))}
         </ul>
@@ -54,5 +55,17 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
   .logo-header img {
     width: 50px;
     height: auto;
+  }
+
+  .links-list li:has(.link-description) {
+    margin-bottom: 1.75rem;
+  }
+
+  .link-description {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+    margin-top: 0.4rem;
+    max-width: 52ch;
   }
 </style>

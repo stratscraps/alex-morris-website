@@ -51,6 +51,7 @@ collections:
                 fields:
                   - { label: "Link Text", name: "label", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text", required: false }
 
       - name: "private-works"
         label: "Private Practice Page"
