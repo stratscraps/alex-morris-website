@@ -66,3 +66,24 @@ collections:
               - { label: "Section ID", name: "id", widget: "string" }
               - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Content", name: "content", widget: "text" }
+
+      - name: "offerings"
+        label: "Offerings Menu"
+        file: "src/data/offerings.json"
+        fields:
+          - { label: "Page Title", name: "pageTitle", widget: "string" }
+          - { label: "Subtitle", name: "pageSubtitle", widget: "string" }
+          - { label: "Intro", name: "pageIntro", widget: "text" }
+          - label: "Groups"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "Group Label", name: "label", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Meta", name: "meta", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "text" }

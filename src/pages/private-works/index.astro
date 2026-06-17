@@ -49,11 +49,16 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
                   ))}
                 </ul>
               ) : section.id === 'offering' ? (
-                <ul style="padding-left: 1.5rem;">
-                  {section.content.split(', ').map((item) => (
-                    <li>{item}</li>
-                  ))}
-                </ul>
+                <>
+                  <ul style="padding-left: 1.5rem;">
+                    {section.content.split(', ').map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                  <a href="/private-works/offerings" class="offering-menu-link">
+                    See the flat-fee menu &amp; rates →
+                  </a>
+                </>
               ) : (
                 <p>{section.content}</p>
               )}
@@ -174,5 +179,20 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
   .client-item.open .client-description {
     max-height: 100px;
     padding-bottom: 0.75rem;
+  }
+
+  .offering-menu-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    margin-left: 1.5rem;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    transition: color 200ms, border-color 200ms;
+  }
+
+  .offering-menu-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 </style>

@@ -1,0 +1,47 @@
+{
+  "pageTitle": "OFFERINGS",
+  "pageSubtitle": "Flat Fees · Defined Scope",
+  "pageIntro": "Flat fees. Defined scope. Pick what fits where you are.",
+  "groups": [
+    {
+      "label": "Turn-Key Engagements",
+      "items": [
+        {
+          "name": "Second Opinion",
+          "price": "$2,000",
+          "meta": "90-minute call",
+          "description": "A single 90-minute call. You walk me through your plan, I give you my honest read, and you get a write-up after to share with the team."
+        },
+        {
+          "name": "Category Read",
+          "price": "$3,500",
+          "meta": "~3-day turnaround",
+          "description": "I look at two categories: yours, and one that seems unrelated but runs on the same customer behavior underneath. From yours, I find the opening worth taking. From the other, I pull what's already working that you can borrow. You get a short write-up and a call to walk through both."
+        },
+        {
+          "name": "Unstuck",
+          "price": "$5,000",
+          "meta": "2-day turnaround",
+          "description": "You're stuck and need fresh eyes. Send me what you've got, we talk it through so I get the real context, and I come back in writing with where it's caught and where I'd take it next."
+        },
+        {
+          "name": "Workshop",
+          "price": "$7,000+",
+          "meta": "Built for your team",
+          "description": "A working session built for your team's specific problem — not an off-the-shelf one I run for everyone. I design it from twelve years of my own material: the frameworks, the exercises, the real brand work, shaped around whatever you're actually stuck on. Your team works through real briefs in the room and keeps the whole thing afterward."
+        }
+      ]
+    },
+    {
+      "label": "Retainer",
+      "items": [
+        {
+          "name": "Monthly Retainer",
+          "price": "$3–5K/mo",
+          "meta": "Ongoing access",
+          "description": "A monthly setup that keeps me available to your team without booking a full project every time. You get a set amount of access: a few brief reviews a month, one strategy session, and gut-checks over email or Slack whenever something comes up. You're paying for the access, not the hours."
+        }
+      ]
+    }
+  ]
+}
