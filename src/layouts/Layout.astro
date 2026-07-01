@@ -18,6 +18,7 @@ const { title, theme = 'split' } = Astro.props;
   </head>
   <body class={theme === 'dark' ? 'page-dark' : theme === 'light' ? 'page-light' : ''}>
     <slot />
+    <script is:inline src="/cms/edit-mode.js"></script>
   </body>
 </html>
 

@@ -6,7 +6,7 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
 ---
 
 <Layout title="Private Practice - Alex Morris" theme="light">
-  <a href="/" class="back-nav">← Home</a>
+  <a href="/" class="back-nav">&larr; Home</a>
 
   <div class="logo-header">
     <a href="/"><img src="/logo-dark.svg" alt="Strat Scraps" /></a>
@@ -14,37 +14,51 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
 
   <main style="padding-top: 6rem;">
     <header style="text-align: center; padding: 2rem;">
-      <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
+      <p class="nav-text" style="color: #666; margin-bottom: 1rem;"
+         data-cms="private-works" data-cms-path="pageSubtitle">
         {pageSubtitle}
       </p>
-      <h1 class="heading-primary">{pageTitle}</h1>
-      <p style="color: #666; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
+      <h1 class="heading-primary"
+          data-cms="private-works" data-cms-path="pageTitle">
+        {pageTitle}
+      </h1>
+      <p style="color: #666; max-width: 500px; margin: 1rem auto; line-height: 1.6;"
+         data-cms="private-works" data-cms-path="pageDescription">
         {pageDescription}
       </p>
     </header>
 
     <div class="section" style="max-width: 600px;">
-      {sections.map((section) => (
+      {sections.map((section, sectionIdx) => (
         <div class="accordion-item">
           <button
             class="accordion-header"
             data-accordion={section.id}
             aria-expanded="false"
           >
-            <span>{section.title}</span>
+            <span data-cms="private-works" data-cms-path={`sections.${sectionIdx}.title`}>
+              {section.title}
+            </span>
             <span class="accordion-icon">+</span>
           </button>
           <div class="accordion-content" id={section.id}>
             <div style="padding-bottom: 1.5rem; line-height: 1.8;">
               {section.id === 'clients' && section.clients ? (
                 <ul class="client-list">
-                  {section.clients.map((client) => (
+                  {section.clients.map((client, clientIdx) => (
                     <li class="client-item">
                       <button class="client-toggle" aria-expanded="false">
-                        <span>{client.name}</span>
+                        <span data-cms="private-works"
+                              data-cms-path={`sections.${sectionIdx}.clients.${clientIdx}.name`}>
+                          {client.name}
+                        </span>
                         <span class="client-icon">+</span>
                       </button>
-                      <p class="client-description">{client.description}</p>
+                      <p class="client-description"
+                         data-cms="private-works"
+                         data-cms-path={`sections.${sectionIdx}.clients.${clientIdx}.description`}>
+                        {client.description}
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -52,15 +66,21 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
                 <>
                   <ul style="padding-left: 1.5rem;">
                     {section.content.split(', ').map((item) => (
-                      <li>{item}</li>
+                      <li data-cms="private-works"
+                          data-cms-path={`sections.${sectionIdx}.content`}>
+                        {item}
+                      </li>
                     ))}
                   </ul>
                   <a href="/private-works/offerings" class="offering-menu-link">
-                    See the flat-fee menu &amp; rates →
+                    Ways of working &rarr;
                   </a>
                 </>
               ) : (
-                <p>{section.content}</p>
+                <p data-cms="private-works"
+                   data-cms-path={`sections.${sectionIdx}.content`}>
+                  {section.content}
+                </p>
               )}
             </div>
           </div>
@@ -70,6 +90,11 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = privateWorksData;
   </main>
 
   <a href="mailto:alex@stratscraps.com" class="contact-link">Contact</a>
+
+  <script is:inline define:vars={{ _cmsData: privateWorksData, _cmsFile: 'private-works' }}>
+    window.__cms = window.__cms || {};
+    window.__cms[_cmsFile] = _cmsData;
+  </script>
 </Layout>
 
 <script>

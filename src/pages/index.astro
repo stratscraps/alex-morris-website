@@ -10,10 +10,14 @@ const { siteTitle, logoAlt, publicWorks, privateWorks, contactEmail, contactLabe
     <!-- Left Side - Public Works (Dark) -->
     <a href={publicWorks.link} class="split-side split-side--dark">
       <div class="content-wrapper">
-        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
+        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;"
+           data-cms="homepage" data-cms-path="publicWorks.subtitle">
           {publicWorks.subtitle}
         </p>
-        <h1 class="heading-primary">{publicWorks.heading}</h1>
+        <h1 class="heading-primary"
+            data-cms="homepage" data-cms-path="publicWorks.heading">
+          {publicWorks.heading}
+        </h1>
       </div>
     </a>
 
@@ -27,15 +31,27 @@ const { siteTitle, logoAlt, publicWorks, privateWorks, contactEmail, contactLabe
     <!-- Right Side - Private Practice (Light) -->
     <a href={privateWorks.link} class="split-side split-side--light">
       <div class="content-wrapper">
-        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;">
+        <p class="nav-text" style="color: #666; margin-bottom: 1.5rem;"
+           data-cms="homepage" data-cms-path="privateWorks.subtitle">
           {privateWorks.subtitle}
         </p>
-        <h1 class="heading-primary">{privateWorks.heading}</h1>
+        <h1 class="heading-primary"
+            data-cms="homepage" data-cms-path="privateWorks.heading">
+          {privateWorks.heading}
+        </h1>
       </div>
     </a>
   </div>
 
-  <a href={`mailto:${contactEmail}`} class="contact-link">{contactLabel}</a>
+  <a href={`mailto:${contactEmail}`} class="contact-link"
+     data-cms="homepage" data-cms-path="contactLabel">
+    {contactLabel}
+  </a>
+
+  <script is:inline define:vars={{ _cmsData: homepageData, _cmsFile: 'homepage' }}>
+    window.__cms = window.__cms || {};
+    window.__cms[_cmsFile] = _cmsData;
+  </script>
 </Layout>
 
 <style>

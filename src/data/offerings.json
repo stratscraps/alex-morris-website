@@ -1,47 +1,46 @@
 {
-  "pageTitle": "OFFERINGS",
-  "pageSubtitle": "Flat Fees · Defined Scope",
-  "pageIntro": "Flat fees. Defined scope. Pick what fits where you are.",
-  "groups": [
+  "title": "How I Work",
+  "subhead": "These are a place to start, not a vending machine.",
+  "paths": [
     {
-      "label": "Turn-Key Engagements",
-      "items": [
-        {
-          "name": "Second Opinion",
-          "price": "$2,000",
-          "meta": "90-minute call",
-          "description": "A single 90-minute call. You walk me through your plan, I give you my honest read, and you get a write-up after to share with the team."
-        },
-        {
-          "name": "Category Read",
-          "price": "$3,500",
-          "meta": "~3-day turnaround",
-          "description": "I look at two categories: yours, and one that seems unrelated but runs on the same customer behavior underneath. From yours, I find the opening worth taking. From the other, I pull what's already working that you can borrow. You get a short write-up and a call to walk through both."
-        },
-        {
-          "name": "Unstuck",
-          "price": "$5,000",
-          "meta": "2-day turnaround",
-          "description": "You're stuck and need fresh eyes. Send me what you've got, we talk it through so I get the real context, and I come back in writing with where it's caught and where I'd take it next."
-        },
-        {
-          "name": "Workshop",
-          "price": "$7,000+",
-          "meta": "Built for your team",
-          "description": "A working session built for your team's specific problem — not an off-the-shelf one I run for everyone. I design it from twelve years of my own material: the frameworks, the exercises, the real brand work, shaped around whatever you're actually stuck on. Your team works through real briefs in the room and keeps the whole thing afterward."
-        }
-      ]
+      "number": "01",
+      "name": "Problem Diagnostic",
+      "meta": "Orientation Sprint · 2–3 weeks",
+      "tag": "Fixed project fee",
+      "iconSrc": "/icons/icon-diagnostician.png",
+      "signal": "\"Something's wrong but we can't name it.\"",
+      "desc": "You send me the mess — briefs, decks, research, whatever you have. I read everything, talk to the right people, and come back with what's actually going on. You get a named problem and a proposal for what to do about it.",
+      "boundary": "This is the diagnosis, not the treatment. Execution and ongoing support are separate conversations."
     },
     {
-      "label": "Retainer",
-      "items": [
-        {
-          "name": "Monthly Retainer",
-          "price": "$3–5K/mo",
-          "meta": "Ongoing access",
-          "description": "A monthly setup that keeps me available to your team without booking a full project every time. You get a set amount of access: a few brief reviews a month, one strategy session, and gut-checks over email or Slack whenever something comes up. You're paying for the access, not the hours."
-        }
-      ]
+      "number": "02",
+      "name": "Provocation",
+      "meta": "Provocation · 1–2 days",
+      "tag": "Day or sprint rate",
+      "iconSrc": "/icons/icon-provocateur.png",
+      "signal": "\"Somewhere along the way, things got stuck\" or \"everything we do looks like everyone else\"",
+      "desc": "You bring the brief or the stuck point. I spend a day unpacking it and assessing the question underneath it. You get a document of provocation and possible paths forward.",
+      "boundary": "This is pure thinking applied to existing plans. Not a finished deliverable you can hand to a creative team."
+    },
+    {
+      "number": "03",
+      "name": "Slide Dealer",
+      "meta": "Creative Handoff · Scoped project",
+      "tag": "Deliverable-based",
+      "iconSrc": "/icons/icon-maker.png",
+      "signal": "\"We know what we need built.\"",
+      "desc": "You have a brief. I produce the artifact — positioning, creative strategy, campaign architecture. You get a finished, usable thing your team can take and build from.",
+      "boundary": "The brief is the brief. Open-ended exploration and unlimited revision cycles are separate engagements."
+    },
+    {
+      "number": "04",
+      "name": "Embedded Partner",
+      "meta": "Sidekick Mode · Ongoing",
+      "tag": "Monthly retainer",
+      "iconSrc": "/icons/icon-sidekick.png",
+      "signal": "\"We need someone who gets us and can wear lots of hats\"",
+      "desc": "Usually starts after a sprint or project — you want me to stick around. We set terms for ongoing strategic access. You get a strategist who carries context across projects and quarters. Outside perspective from someone who knows the inside.",
+      "boundary": "Not a full-time employee. The outside view only works because I'm not on payroll."
     }
   ]
 }

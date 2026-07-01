@@ -2,128 +2,309 @@
 import Layout from '../../layouts/Layout.astro';
 import offeringsData from '../../data/offerings.json';
 
-const { pageTitle, pageSubtitle, pageIntro, groups } = offeringsData;
+const { title, subhead, paths } = offeringsData;
 ---
 
-<Layout title="Offerings - Alex Morris" theme="light">
-  <a href="/private-works" class="back-nav">← Private Practice</a>
+<Layout title="How I Work - Alex Morris" theme="light">
+  <div class="hiw-page">
+    <div class="hiw-topbar">
+      <a href="/private-works" class="hiw-backnav">&larr; Private Practice</a>
+      <span class="hiw-wordmark">strat_scraps</span>
+    </div>
 
-  <div class="logo-header">
-    <a href="/"><img src="/logo-dark.svg" alt="Strat Scraps" /></a>
-  </div>
-
-  <main style="padding-top: 6rem;">
-    <header style="text-align: center; padding: 2rem;">
-      <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
-        {pageSubtitle}
-      </p>
-      <h1 class="heading-primary">{pageTitle}</h1>
-      <p style="color: #666; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
-        {pageIntro}
+    <header class="hiw-header">
+      <h1 class="hiw-title"
+          data-cms="offerings" data-cms-path="title">
+        {title}
+      </h1>
+      <p class="hiw-subhead"
+         data-cms="offerings" data-cms-path="subhead">
+        {subhead}
       </p>
     </header>
 
-    <div class="section" style="max-width: 640px;">
-      {groups.map((group) => (
-        <section class="menu-group">
-          <h2 class="section-title">{group.label}</h2>
-          {group.items.map((item) => (
-            <article class="offering">
-              <div class="offering-head">
-                <h3 class="offering-name">{item.name}</h3>
-                <span class="offering-price">{item.price}</span>
-              </div>
-              {item.meta && <p class="offering-meta">{item.meta}</p>}
-              <p class="offering-desc">{item.description}</p>
-            </article>
-          ))}
-        </section>
+    <div class="hiw-grid">
+      {paths.map((path, pathIdx) => (
+        <article class="hiw-card">
+          <img class="hiw-icon" src={path.iconSrc} alt="" />
+          <div>
+            <span class="hiw-num"
+                  data-cms="offerings" data-cms-path={`paths.${pathIdx}.number`}>
+              {path.number}
+            </span>
+            <h3 class="hiw-name"
+                data-cms="offerings" data-cms-path={`paths.${pathIdx}.name`}>
+              {path.name}
+            </h3>
+            <p class="hiw-meta"
+               data-cms="offerings" data-cms-path={`paths.${pathIdx}.meta`}>
+              {path.meta}
+            </p>
+            <div class="hiw-tag-row">
+              <span class="hiw-tag"
+                    data-cms="offerings" data-cms-path={`paths.${pathIdx}.tag`}>
+                {path.tag}
+              </span>
+            </div>
+            <p class="hiw-signal"
+               data-cms="offerings" data-cms-path={`paths.${pathIdx}.signal`}>
+              {path.signal}
+            </p>
+            <p class="hiw-desc"
+               data-cms="offerings" data-cms-path={`paths.${pathIdx}.desc`}>
+              {path.desc}
+            </p>
+            <p class="hiw-boundary"
+               data-cms="offerings" data-cms-path={`paths.${pathIdx}.boundary`}>
+              {path.boundary}
+            </p>
+          </div>
+        </article>
       ))}
-
-      <p class="menu-foot">
-        Not sure which fits? <a href="mailto:alex@stratscraps.com">Tell me where you're stuck →</a>
-      </p>
     </div>
-  </main>
 
-  <a href="mailto:alex@stratscraps.com" class="contact-link">Contact</a>
+    <div class="hiw-foot">
+      <div class="hiw-foot-row">
+        <span class="hiw-foot-q">Not sure which fits?</span>
+        <a href="mailto:alex@stratscraps.com" class="hiw-cta">Tell me where you're stuck &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ _cmsData: offeringsData, _cmsFile: 'offerings' }}>
+    window.__cms = window.__cms || {};
+    window.__cms[_cmsFile] = _cmsData;
+  </script>
 </Layout>
 
+<style is:global>
+  body.page-light:has(.hiw-page) {
+    background: #dcd9d1;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+</style>
+
 <style>
-  .logo-header {
-    position: fixed;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
+  .hiw-page {
+    width: 820px;
+    max-width: 100%;
+    background: #F4F1EB;
+    color: #000;
+    border: 1px solid #000;
   }
 
-  .logo-header img {
-    width: 50px;
-    height: auto;
-  }
-
-  .menu-group {
-    margin-bottom: 3.5rem;
-  }
-
-  .offering {
-    padding: 1.75rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .menu-group .offering:last-child {
-    border-bottom: none;
-  }
-
-  .offering-head {
+  .hiw-topbar {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 1.5rem;
+    align-items: center;
+    padding: 16px 36px;
+    border-bottom: 1px solid #000;
   }
 
-  .offering-name {
-    font-size: 18px;
+  .hiw-backnav {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6B6A66;
+    transition: color 0.12s;
+  }
+
+  .hiw-backnav:hover {
+    color: #000;
+  }
+
+  .hiw-wordmark {
     font-weight: 400;
+    font-size: 13px;
     letter-spacing: 0.02em;
   }
 
-  .offering-price {
-    font-size: 18px;
-    font-weight: 500;
-    white-space: nowrap;
+  .hiw-header {
+    padding: 46px 40px 30px;
   }
 
-  .offering-meta {
-    font-size: 11px;
+  .hiw-title {
+    font-family: 'Archivo', 'Arial Black', sans-serif;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #999;
-    margin-top: 0.4rem;
+    letter-spacing: 0;
+    font-stretch: 125%;
+    line-height: 1;
+    font-size: 66px;
+    color: #000;
   }
 
-  .offering-desc {
+  .hiw-subhead {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3A3A38;
+    max-width: 52ch;
+    margin-top: 20px;
+  }
+
+  .hiw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 40px;
+  }
+
+  .hiw-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000;
+    padding: 28px;
+    background: #F4F1EB;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+
+  .hiw-card:hover {
+    box-shadow: 6px 6px 0 0 #000;
+    transform: translate(-3px, -3px);
+  }
+
+  .hiw-icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .hiw-num {
+    font-weight: 300;
+    font-size: 22px;
+    color: #B6B3AC;
+  }
+
+  .hiw-name {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    margin-top: 8px;
+    padding-right: 96px;
+  }
+
+  .hiw-meta {
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #6B6A66;
+    margin-top: 7px;
+    padding-right: 96px;
+  }
+
+  .hiw-tag-row {
+    margin-top: 12px;
+  }
+
+  .hiw-tag {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid #B6B3AC;
+    border-radius: 999px;
+    padding: 3px 11px;
+    color: #6B6A66;
+  }
+
+  .hiw-signal {
+    font-style: italic;
     font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-top: 0.85rem;
-    max-width: 54ch;
+    color: #3A3A38;
+    margin-top: 15px;
   }
 
-  .menu-foot {
-    margin-top: 1rem;
-    font-size: 14px;
-    color: #666;
+  .hiw-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3A3A38;
+    margin-top: 12px;
   }
 
-  .menu-foot a {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    transition: border-color 200ms, color 200ms;
+  .hiw-boundary {
+    font-size: 12.5px;
+    color: #6B6A66;
+    margin-top: 11px;
+    line-height: 1.6;
   }
 
-  .menu-foot a:hover {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
+  .hiw-foot {
+    padding: 32px 40px 44px;
+  }
+
+  .hiw-foot-row {
+    padding-top: 24px;
+    border-top: 1px solid #000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hiw-foot-q {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #3A3A38;
+  }
+
+  .hiw-cta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    background: #F4F1EB;
+    color: #000;
+    box-shadow: 2px 2px 0 0 #000;
+    transition: transform 0.12s, background 0.12s, color 0.12s, box-shadow 0.12s;
+  }
+
+  .hiw-cta:hover {
+    background: #000;
+    color: #F4F1EB;
+  }
+
+  .hiw-cta:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 #000;
+  }
+
+  @media (max-width: 700px) {
+    .hiw-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hiw-title {
+      font-size: 40px;
+    }
+
+    .hiw-header {
+      padding: 32px 24px 20px;
+    }
+
+    .hiw-grid {
+      padding: 0 24px;
+    }
+
+    .hiw-topbar {
+      padding: 16px 24px;
+    }
+
+    .hiw-foot {
+      padding: 24px 24px 32px;
+    }
   }
 </style>

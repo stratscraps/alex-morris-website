@@ -6,7 +6,7 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
 ---
 
 <Layout title="Public Works - Alex Morris" theme="dark">
-  <a href="/" class="back-nav" style="color: #666;">← Home</a>
+  <a href="/" class="back-nav" style="color: #666;">&larr; Home</a>
 
   <div class="logo-header">
     <a href="/"><img src="/logo-light.svg" alt="Strat Scraps" /></a>
@@ -14,25 +14,42 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
 
   <main style="padding-top: 6rem;">
     <header style="text-align: center; padding: 2rem;">
-      <p class="nav-text" style="color: #666; margin-bottom: 1rem;">
+      <p class="nav-text" style="color: #666; margin-bottom: 1rem;"
+         data-cms="public-works" data-cms-path="pageSubtitle">
         {pageSubtitle}
       </p>
-      <h1 class="heading-primary">{pageTitle}</h1>
-      <p style="color: #888; max-width: 500px; margin: 1rem auto; line-height: 1.6;">
+      <h1 class="heading-primary"
+          data-cms="public-works" data-cms-path="pageTitle">
+        {pageTitle}
+      </h1>
+      <p style="color: #888; max-width: 500px; margin: 1rem auto; line-height: 1.6;"
+         data-cms="public-works" data-cms-path="pageDescription">
         {pageDescription}
       </p>
     </header>
 
-    {sections.map((section) => (
+    {sections.map((section, sectionIdx) => (
       <section class="section">
-        <h2 class="section-title">{section.title}</h2>
+        <h2 class="section-title"
+            data-cms="public-works" data-cms-path={`sections.${sectionIdx}.title`}>
+          {section.title}
+        </h2>
         <ul class="links-list">
-          {section.links.map((link) => (
+          {section.links.map((link, linkIdx) => (
             <li>
-              <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <a href={link.url} target="_blank" rel="noopener noreferrer"
+                 data-cms="public-works"
+                 data-cms-path={`sections.${sectionIdx}.links.${linkIdx}.label`}
+                 data-cms-href={`sections.${sectionIdx}.links.${linkIdx}.url`}>
                 {link.label}
               </a>
-              {link.description && <p class="link-description">{link.description}</p>}
+              {link.description && (
+                <p class="link-description"
+                   data-cms="public-works"
+                   data-cms-path={`sections.${sectionIdx}.links.${linkIdx}.description`}>
+                  {link.description}
+                </p>
+              )}
             </li>
           ))}
         </ul>
@@ -41,6 +58,11 @@ const { pageTitle, pageSubtitle, pageDescription, sections } = publicWorksData;
   </main>
 
   <a href="mailto:alex@stratscraps.com" class="contact-link" style="color: #666;">Contact</a>
+
+  <script is:inline define:vars={{ _cmsData: publicWorksData, _cmsFile: 'public-works' }}>
+    window.__cms = window.__cms || {};
+    window.__cms[_cmsFile] = _cmsData;
+  </script>
 </Layout>
 
 <style>
